@@ -1,3 +1,11 @@
+import { useState } from 'react'
+
+type Theme = 'light' | 'dark'
+
+type ThemeTransitionDocument = Document & {
+  startViewTransition?: (callback: () => void) => void
+}
+
 const methods = ['Evaluate', 'Compare', 'Verify', 'Document']
 
 const impact = [
@@ -73,6 +81,37 @@ const credentials = [
 ]
 
 function App() {
+  const [theme, setTheme] = useState<Theme>(() =>
+    document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light',
+  )
+
+  const toggleTheme = () => {
+    const nextTheme: Theme = theme === 'light' ? 'dark' : 'light'
+    const applyTheme = () => {
+      document.documentElement.dataset.theme = nextTheme
+      document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute(
+        'content',
+        nextTheme === 'dark' ? '#0d0d0d' : '#f8f8f8',
+      )
+      try {
+        localStorage.setItem('tega-theme', nextTheme)
+      } catch {
+        // Storage can be unavailable in privacy-restricted browsing contexts.
+      }
+      setTheme(nextTheme)
+    }
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const startViewTransition = (document as ThemeTransitionDocument).startViewTransition
+
+    if (startViewTransition && !reduceMotion) {
+      startViewTransition.call(document, applyTheme)
+      return
+    }
+
+    applyTheme()
+  }
+
   const personData = {
     '@context': 'https://schema.org',
     '@type': 'Person',
@@ -88,16 +127,27 @@ function App() {
     <>
       <a className="skip-link" href="#main">Skip to content</a>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personData) }} />
-
       <header className="hero-stage" id="about">
         <div className="top-rail">
           <a className="site-name" href="#about" aria-label="Tega Jensen, home">Tega Jensen</a>
-          <nav aria-label="Primary navigation">
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#expertise">Expertise</a>
-            <a href="#contact">Contact</a>
-          </nav>
+          <div className="top-actions">
+            <nav aria-label="Primary navigation">
+              <a href="#about">About</a>
+              <a href="#experience">Experience</a>
+              <a href="#expertise">Expertise</a>
+              <a href="#contact">Contact</a>
+            </nav>
+            <button
+              className="theme-toggle"
+              type="button"
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
+              aria-pressed={theme === 'dark'}
+            >
+              <span className="theme-toggle__mark" aria-hidden="true" />
+              <span>{theme === 'light' ? 'Dark' : 'Light'}</span>
+            </button>
+          </div>
         </div>
 
         <div className="hero-scale" aria-hidden="true">

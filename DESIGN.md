@@ -14,9 +14,10 @@ Tega Jensen's portfolio uses a monochrome editorial system shaped around careful
 
 - **Display:** self-hosted Handjet with a square-grid ink pattern.
 - **Body:** Arial with system sans-serif fallbacks.
-- **Palette:** `#0c0c0c`, `#5b5b5b`, `#c7c7c7`, and `#f8f8f8`.
+- **Palette:** light uses `#0c0c0c`, `#5b5b5b`, `#c7c7c7`, and `#f8f8f8`; dark reverses the system through warm white ink, charcoal paper, and muted gray rules.
 - **Structure:** hairline rules, open grids, square corners, no shadows or gradients.
-- **Motion:** one short headline-resolution sequence and restrained section reveals, disabled for reduced-motion preferences.
+- **Motion:** one short headline-resolution sequence, restrained section reveals, and a bottom-up theme transition. Reduced-motion preferences keep the state change while removing spatial movement.
+- **Theme control:** a header-integrated, square-cornered contrast switch persists the visitor's choice and follows the system preference on first visit.
 
 ## Responsive behaviour
 
