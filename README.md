@@ -2,6 +2,8 @@
 
 A one-page professional portfolio for Tega Jensen, focused on AI evaluation, content quality, data annotation, research, and quality assurance.
 
+**Live site:** [tega-jensen-portfolio.vercel.app](https://tega-jensen-portfolio.vercel.app/)
+
 ## Tech stack
 
 - React 19

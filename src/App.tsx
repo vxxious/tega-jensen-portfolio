@@ -77,6 +77,7 @@ function App() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Tega Jensen',
+    url: 'https://tega-jensen-portfolio.vercel.app/',
     jobTitle: 'AI Evaluation & Content Quality Specialist',
     address: { '@type': 'PostalAddress', addressLocality: 'Richmond', addressRegion: 'TX', addressCountry: 'US' },
     sameAs: ['https://www.linkedin.com/in/tega-jensen-2a5ba82aa'],

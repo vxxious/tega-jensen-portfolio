@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://tega-jensen-portfolio.vercel.app/sitemap.xml
