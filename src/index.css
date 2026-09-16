@@ -800,7 +800,7 @@ footer a {
   }
 
   .contact-section h2 {
-    font-size: clamp(4.6rem, 23vw, 8rem);
+    font-size: clamp(4rem, 17vw, 6rem);
   }
 
   .contact-section > div {
