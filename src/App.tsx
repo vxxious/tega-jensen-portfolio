@@ -143,9 +143,9 @@ function App() {
               onClick={toggleTheme}
               aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
               aria-pressed={theme === 'dark'}
+              title={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
             >
               <span className="theme-toggle__mark" aria-hidden="true" />
-              <span>{theme === 'light' ? 'Dark' : 'Light'}</span>
             </button>
           </div>
         </div>
