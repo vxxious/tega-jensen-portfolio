@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.vercel/
+.impeccable/
+.env*
+!.env.example
+*.log
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+PRODUCT.md
+regions.json
+.DS_Store
